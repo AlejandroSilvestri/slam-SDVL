@@ -19,6 +19,8 @@
  *
  */
 
+#include <opencv2/features2d.hpp>
+
 #include "./fast_detector.h"
 #include "./utils.h"
 #include "../config.h"

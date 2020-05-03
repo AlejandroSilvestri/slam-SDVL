@@ -22,7 +22,7 @@
 #ifndef SDVL_EXTRA_FAST_DETECTOR_H_
 #define SDVL_EXTRA_FAST_DETECTOR_H_
 
-#include <opencv/cvaux.h>
+//#include <opencv/cvaux.h>
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>

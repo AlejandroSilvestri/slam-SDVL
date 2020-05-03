@@ -21,12 +21,20 @@
 
 #include <exception>
 #include "./bundle.h"
+/*
 #include "extra/g2o/g2o/core/block_solver.h"
 #include "extra/g2o/g2o/core/optimization_algorithm_levenberg.h"
 #include "extra/g2o/g2o/solvers/linear_solver_eigen.h"
 #include "extra/g2o/g2o/types/types_six_dof_expmap.h"
 #include "extra/g2o/g2o/core/robust_kernel_impl.h"
 #include "extra/g2o/g2o/solvers/linear_solver_dense.h"
+*/
+#include <g2o/core/block_solver.h>
+#include <g2o/core/optimization_algorithm_levenberg.h>
+#include <g2o/solvers/linear_solver_eigen.h>
+#include <g2o/types/types_six_dof_expmap.h>
+#include <g2o/core/robust_kernel_impl.h>
+#include <g2o/solvers/linear_solver_dense.h>
 
 using std::shared_ptr;
 using std::vector;
