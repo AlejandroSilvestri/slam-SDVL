@@ -35,9 +35,9 @@ VideoSource::VideoSource() {
   if (use_real_) {
     cout << "[INFO] VideoSource_Linux: Opening video source /dev/video" << params.device << "..." << endl;
     cap_ = new cv::VideoCapture(params.device);
-    cap_->set(CV_CAP_PROP_FRAME_WIDTH, params.width);
-    cap_->set(CV_CAP_PROP_FRAME_HEIGHT, params.height);
-    cap_->set(CV_CAP_PROP_FPS, params.fps);
+    cap_->set(cv::CAP_PROP_FRAME_WIDTH, params.width);
+    cap_->set(cv::CAP_PROP_FRAME_HEIGHT, params.height);
+    cap_->set(cv::CAP_PROP_FPS, params.fps);
     if (!cap_->isOpened()) {
       cerr << "[ERROR] Couldn't open video device" << endl;
       exit(-1);
@@ -60,7 +60,7 @@ void VideoSource::GetFrame(cv::Mat *img) {
   if (use_real_) {
     cv::Mat frame;
     *cap_ >> frame;
-    cv::cvtColor(frame, *img, CV_RGB2GRAY);
+    cv::cvtColor(frame, *img, cv::COLOR_RGB2GRAY);
   } else {
     if (file_.is_open()) {
       std::string line;
@@ -71,7 +71,7 @@ void VideoSource::GetFrame(cv::Mat *img) {
         cout << "[INFO] Reading Frame " << ss.str() << endl;
 
         // Read image in gray scale
-        *img = cv::imread(ss.str(), CV_LOAD_IMAGE_GRAYSCALE);
+        *img = cv::imread(ss.str(), cv::IMREAD_GRAYSCALE);
       } else {
         *img = cv::Mat();
         file_.close();

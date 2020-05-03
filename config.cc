@@ -21,8 +21,8 @@
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
-#include <opencv/cv.h>
-#include <opencv/cvaux.h>
+//#include <opencv/cv.h>
+//#include <opencv/cvaux.h>
 #include "./config.h"
 
 using std::cerr;

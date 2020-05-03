@@ -19,6 +19,8 @@
  *
  */
 
+#include <opencv2/imgproc.hpp>
+
 #include "./drawimage.h"
 #include "../point.h"
 #include "../config.h"
@@ -30,9 +32,9 @@ using std::endl;
 namespace sdvl {
 
 DrawImage::DrawImage(Camera * camera) {
-  refresh_time_ = 1;  // ms
+  //refresh_time_ = 1;  // ms
   camera_ = camera;
-  updated_ = false;
+  //updated_ = false;
 
   cv::namedWindow("SDVL: Current Frame");
 
@@ -46,12 +48,12 @@ DrawImage::~DrawImage() {
 void DrawImage::SetBackground(const cv::Mat &src) {
   // Convert to RGB
   std::unique_lock<std::mutex> lock(mutex_3D_);
-  cv::cvtColor(src, image_, CV_GRAY2RGB);
+  cv::cvtColor(src, image_, cv::COLOR_GRAY2RGB);
   updated_ = true;
 }
 
 void DrawImage::SetFeatures(const vector<Eigen::Vector3i> &features) {
-  CvScalar color;
+  cv::Scalar color;
 
   std::unique_lock<std::mutex> lock(mutex_3D_);
   for (vector<Eigen::Vector3i>::const_iterator it=features.begin(); it != features.end(); it++) {
@@ -61,7 +63,7 @@ void DrawImage::SetFeatures(const vector<Eigen::Vector3i> &features) {
       color = CV_RGB(255, 0, 0);
     else
       color = CV_RGB(255, 255, 0);
-    cv::circle(image_, cvPoint((*it)(0), (*it)(1)), 3, color, 1, CV_AA, 0);
+    cv::circle(image_, cv::Point((*it)(0), (*it)(1)), 3, color, 1, cv::LINE_AA, 0);
   }
 }
 

@@ -28,8 +28,8 @@
 #include <mutex>
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
-#include <opencv/cv.h>
-#include <opencv/cvaux.h>
+//#include <opencv/cv.h>
+//#include <opencv/cvaux.h>
 #include <Eigen/Dense>
 #include "../camera.h"
 #include "../sdvl.h"
@@ -59,15 +59,15 @@ class DrawImage {
   bool Project(double x, double y, double z, cv::Point *p);
 
   std::mutex mutex_3D_;
-  int refresh_time_;
+  int refresh_time_ = 1;	// ms
   sdvl::SE3 pose_;
-  SDVL::TrackingQuality quality_;
+  SDVL::TrackingQuality quality_ = SDVL::TRACKING_GOOD;
 
   // Image
   Camera * camera_;
   cv::Mat image_;
 
-  bool updated_;
+  bool updated_ = false;
 };
 
 }  // namespace sdvl

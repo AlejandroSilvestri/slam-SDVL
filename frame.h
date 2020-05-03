@@ -27,8 +27,8 @@
 #include <utility>
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
-#include <opencv/cv.h>
-#include <opencv/cvaux.h>
+//#include <opencv/cv.h>
+//#include <opencv/cvaux.h>
 #include "./feature.h"
 #include "./camera.h"
 #include "extra/orb_detector.h"

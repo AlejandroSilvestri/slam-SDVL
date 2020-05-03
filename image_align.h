@@ -53,12 +53,12 @@ class ImageAlign {
   std::shared_ptr<Frame> frame1_;      // First frame
   std::shared_ptr<Frame> frame2_;      // Second frame
 
-  double chi2_;
+  double chi2_ = 1e10;
   cv::Mat patch_cache_;             // Cache for patches
   std::vector<bool> visible_fts_;   // Visible points
-  size_t  n_meas_;                  // Number of measurements
-  bool stop_;                       // Stop flag
-  double error_;                    // Last optimization error
+  size_t  n_meas_ = 0;              // Number of measurements
+  bool stop_ = false;               // Stop flag
+  double error_ = 1e10;             // Last optimization error
 
   Eigen::Matrix<double, 6, 6>  H_;      // Hessian approximation
   Eigen::Matrix<double, 6, 1>  Jres_;   // Store Jacobian residual

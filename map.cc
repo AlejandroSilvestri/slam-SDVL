@@ -19,6 +19,9 @@
  *
  */
 
+#include <map>
+#include <set>
+
 #include "./map.h"
 #include "./matcher.h"
 #include "./config.h"
@@ -35,6 +38,7 @@ using std::endl;
 namespace sdvl {
 
 Map::Map() {
+	/*
   n_initializations_ = 0;
 
   candidates_updating_halt_ = false;
@@ -45,6 +49,7 @@ Map::Map() {
   initial_kf_id_ = 0;
   last_kf_checked_ = 0;
   num_kfs_ = 0;
+  */
 }
 
 Map::~Map() {

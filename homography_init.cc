@@ -19,6 +19,9 @@
  *
  */
 
+#include <opencv2/calib3d.hpp>
+#include <opencv2/video/tracking.hpp>
+
 #include "./homography_init.h"
 #include "./point.h"
 #include "./feature.h"
@@ -250,7 +253,7 @@ bool HomographyInit::ComputeHomography() {
   }
 
   // Get homography
-  cv::Mat cvH = cv::findHomography(src_pts, dst_pts, CV_RANSAC, 2./focal_length);
+  cv::Mat cvH = cv::findHomography(src_pts, dst_pts, cv::RANSAC, 2./focal_length);
   bestH_(0, 0) = cvH.at<double>(0, 0);
   bestH_(0, 1) = cvH.at<double>(0, 1);
   bestH_(0, 2) = cvH.at<double>(0, 2);

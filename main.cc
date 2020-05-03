@@ -21,6 +21,7 @@
 
 #include <iostream>
 #include <thread>
+
 #include "./sdvl.h"
 #include "./camera.h"
 #include "./video_source.h"
@@ -77,11 +78,11 @@ class UIThread {
   }
 
  private:
-  sdvl::UI * ui_;
-  sdvl::Camera * camera_;
-  sdvl::SDVL * handler_;
+  sdvl::UI * ui_ = NULL;
+  sdvl::Camera * camera_ = NULL;
+  sdvl::SDVL * handler_ = NULL;
 
-  std::thread* thread_;
+  std::thread* thread_ = NULL;
   bool running_;
 };
 #endif
@@ -101,7 +102,7 @@ int main(int argc, char** argv) {
 
   // Read parameters
   sdvl::Config &config = sdvl::Config::GetInstance();
-  if (!config.ReadParameters("../config.cfg")) {
+  if (!config.ReadParameters("./config.cfg")) {	// "../config.cfg"
     cerr << "[ERROR] Config file contains errors" << endl;
     return -1;
   }

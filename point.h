@@ -119,30 +119,30 @@ class Point {
   double PDFNormal(double mean, double sd, double x);
 
   int id_;                      // Point unique id
-  PointStatus status_;          // Point status in last frame
-  bool delete_;                 // True if it will be deleted
+  PointStatus status_ = Point::P_FOUND;          // Point status in last frame
+  bool delete_ = false;         // True if it will be deleted
 
   std::list<std::shared_ptr<Feature>> features_;     // Store all matches of this point
 
-  int last_frame_;        // Last frame where it was projected, avoid projecting it twice
-  int last_ba_;           // Last BA where it was used, avoid using it twice
-  int n_successful_;      // Number of successful projections
-  int n_failed_;          // Number of failed projections
-  bool map_saved_;        // Return true if points was saved in map
+  int last_frame_ = -1;        // Last frame where it was projected, avoid projecting it twice
+  int last_ba_ = -1;           // Last BA where it was used, avoid using it twice
+  int n_successful_ = 0;      // Number of successful projections
+  int n_failed_ = 0;          // Number of failed projections
+  //bool map_saved_;        // Not used  // Return true if points was saved in map
 
   static int counter_;    // Counter to set point id
 
   // Depth uncertainty
-  double a_;                // Beta distribution: When high, probability of inlier is large.
-  double b_;                // Beta distribution: When high, probability of outlier is large.
-  double rho_;              // Inverse depth.
-  double sigma2_;           // Variance of inverse depth.
-  double z_range_;          // Max range of the possible depth.
+  double a_ = 0.0;                // Beta distribution: When high, probability of inlier is large.
+  double b_ = 0.0;                // Beta distribution: When high, probability of outlier is large.
+  double rho_ = 0.0;              // Inverse depth.
+  double sigma2_ = 0.0;           // Variance of inverse depth.
+  double z_range_ = 0.0;          // Max range of the possible depth.
 
   std::shared_ptr<Feature> feature_;      // Feature where point was created
-  double cos_alpha_;                      // Parallax in last update
-  double last_distance_;                  // Distance to last frame
-  bool fixed_;                            // True if point has a fixed position
+  double cos_alpha_ = 0.0;                // Parallax in last update
+  double last_distance_ = 0.0;            // Distance to last frame
+  bool fixed_ = false;                    // True if point has a fixed position
   Eigen::Vector3d p3d_;                   // 3D position (only if converged)
 };
 

@@ -31,12 +31,14 @@ int Point::counter_ = 0;
 
 Point::Point() {
   id_ = counter_;
+  /*
   last_frame_ = -1;
   last_ba_ = -1;
   n_failed_ = 0;
   n_successful_ = 0;
   delete_ = false;
   fixed_ = false;
+  */
   p3d_.Zero();
 
   counter_++;

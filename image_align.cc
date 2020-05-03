@@ -33,11 +33,13 @@ using std::endl;
 namespace sdvl {
 
 ImageAlign::ImageAlign() {
+	/*
   stop_ = false;
   chi2_ = 1e10;
   frame1_ = nullptr;
   frame2_ = nullptr;
   error_ = 1e10;
+  */
 }
 
 ImageAlign::~ImageAlign() {

@@ -19,6 +19,7 @@
  *
  */
 
+#include <opencv2/calib3d.hpp>
 #include "./camera.h"
 #include "./config.h"
 

@@ -119,18 +119,18 @@ class Map {
   std::vector<std::shared_ptr<Point>> candidates_;       // Points not converged
   std::vector<std::shared_ptr<Point>> points_trash_;     // Points trash
 
-  bool candidates_updating_halt_;   // Stops candidates updating
-  int n_initializations_;           // Number of keyframes where candidates where created
-  bool relocalizing_;               // True if tracking is relocalizing
+  bool candidates_updating_halt_ = false;// Stops candidates updating
+  int n_initializations_ = 0;       // Number of keyframes where candidates where created
+  bool relocalizing_ = false;       // True if tracking is relocalizing
   std::shared_ptr<Frame> ba_kf_;    // Keyframe to do bundle adjuntment
   std::shared_ptr<Frame> last_kf_;  // Last Keyframe saved
-  int last_matches_;                // Matches found in last iteration
-  int initial_kf_id_;               // Id for initial keyframe
-  int last_kf_checked_;             // Last redundancy checked
-  int num_kfs_;                     // Keyframes counter
+  int last_matches_ = 0;            // Matches found in last iteration
+  int initial_kf_id_ = 0;           // Id for initial keyframe
+  int last_kf_checked_ = 0;         // Last redundancy checked
+  int num_kfs_ = 0;                 // Keyframes counter
 
-  std::thread* thread_;
-  bool running_;
+  std::thread* thread_ = nullptr;
+  bool running_ = false;
   std::mutex mutex_map_;     // Main map mutex
 };
 
