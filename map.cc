@@ -665,16 +665,16 @@ void Map::CheckRedundantKeyframes() {
         for (auto fit=ffeatures.begin(); fit != ffeatures.end(); fit++) {
           shared_ptr<Frame> fkf = (*fit)->GetFrame();
 
-          if (fkf->ToDelete() || fkf->GetID() == kf->GetID())
-            continue;
+          if(fkf->ToDelete() || fkf->GetID() == kf->GetID() )
+        	  continue;
 
-            // Only valid if point was seen at the same scale level or closer
-            level2 = (*fit)->GetLevel();
-            if (level2 <= level1+1) {
-              nmatches++;
-              if (nmatches >= min_features)
-                break;
-            }
+          // Only valid if point was seen at the same scale level or closer
+          level2 = (*fit)->GetLevel();
+          if(level2 <= level1+1){
+        	  nmatches++;
+			  if (nmatches >= min_features)
+				break;
+          }
         }
         // Point seen from at least 3 keyframes
         if (nmatches >= min_features) {

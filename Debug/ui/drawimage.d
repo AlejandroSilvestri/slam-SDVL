@@ -26,12 +26,12 @@ ui/drawimage.o: ../ui/drawimage.cc \
  /usr/local/include/opencv4/opencv2/core/utility.hpp \
  /usr/local/include/opencv4/opencv2/core/optim.hpp \
  /usr/local/include/opencv4/opencv2/core/ovx.hpp \
- /usr/local/include/opencv4/opencv2/core/cvdef.h ../ui/./drawimage.h \
- /usr/local/include/opencv4/opencv2/core/core.hpp \
- /usr/local/include/opencv4/opencv2/highgui/highgui.hpp \
+ /usr/local/include/opencv4/opencv2/core/cvdef.h \
  /usr/local/include/opencv4/opencv2/highgui.hpp \
  /usr/local/include/opencv4/opencv2/imgcodecs.hpp \
- /usr/local/include/opencv4/opencv2/videoio.hpp \
+ /usr/local/include/opencv4/opencv2/videoio.hpp ../ui/./drawimage.h \
+ /usr/local/include/opencv4/opencv2/core/core.hpp \
+ /usr/local/include/opencv4/opencv2/highgui/highgui.hpp \
  /usr/include/eigen3/Eigen/Dense /usr/include/eigen3/Eigen/Core \
  /usr/include/eigen3/Eigen/src/Core/util/DisableStupidWarnings.h \
  /usr/include/eigen3/Eigen/src/Core/util/Macros.h \
@@ -273,17 +273,17 @@ ui/drawimage.o: ../ui/drawimage.cc \
 
 /usr/local/include/opencv4/opencv2/core/cvdef.h:
 
-../ui/./drawimage.h:
-
-/usr/local/include/opencv4/opencv2/core/core.hpp:
-
-/usr/local/include/opencv4/opencv2/highgui/highgui.hpp:
-
 /usr/local/include/opencv4/opencv2/highgui.hpp:
 
 /usr/local/include/opencv4/opencv2/imgcodecs.hpp:
 
 /usr/local/include/opencv4/opencv2/videoio.hpp:
+
+../ui/./drawimage.h:
+
+/usr/local/include/opencv4/opencv2/core/core.hpp:
+
+/usr/local/include/opencv4/opencv2/highgui/highgui.hpp:
 
 /usr/include/eigen3/Eigen/Dense:
 

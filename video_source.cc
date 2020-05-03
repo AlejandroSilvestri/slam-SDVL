@@ -19,6 +19,8 @@
  *
  */
 
+#include <opencv2/videoio.hpp>
+
 #include "./video_source.h"
 #include "./config.h"
 
