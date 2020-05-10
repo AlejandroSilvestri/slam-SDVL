@@ -109,19 +109,23 @@ int main(int argc, char** argv) {
 
   video = new sdvl::VideoSource();
   camera = new sdvl::Camera();
-
+/*
   #ifdef USE_GUI
   // Start UI
   ui.Start(camera, nullptr);
   usleep(1000 * 1000);
   #endif
-
+*/
   // Start algorithm
   handler = new sdvl::SDVL(camera);
   if (!sequential)
     handler->Start();
+
   #ifdef USE_GUI
-  ui.SetHandler(handler);
+  // Start UI
+  ui.Start(camera, handler);
+  usleep(1000 * 1000);
+  //ui.SetHandler(handler);
   #endif
 
   while (!exit) {
