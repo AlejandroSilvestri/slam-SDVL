@@ -23,7 +23,7 @@ CPP_DEPS += \
 extra/g2o/g2o/types/%.o: ../extra/g2o/g2o/types/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -DUSE_GUI -I/usr/local/include/opencv4 -I/usr/include/eigen3 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+	g++ -std=c++17 -DUSE_GUI -I/usr/include/eigen3 -I/usr/local/include/opencv4 -O0 -g3 -Wall -c -fmessage-length=0 -pthread -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

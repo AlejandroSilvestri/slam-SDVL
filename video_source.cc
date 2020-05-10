@@ -35,11 +35,20 @@ VideoSource::VideoSource() {
   use_real_ = (params.type == 0);
 
   if (use_real_) {
-    cout << "[INFO] VideoSource_Linux: Opening video source /dev/video" << params.device << "..." << endl;
-    cap_ = new cv::VideoCapture(params.device);
-    cap_->set(cv::CAP_PROP_FRAME_WIDTH, params.width);
-    cap_->set(cv::CAP_PROP_FRAME_HEIGHT, params.height);
-    cap_->set(cv::CAP_PROP_FPS, params.fps);
+	if(params.filename == ""){
+		// webcam
+		cout << "[INFO] VideoSource_Linux: Opening video source /dev/video" << params.device << "..." << endl;
+		cap_ = new cv::VideoCapture(params.device);
+	    cap_->set(cv::CAP_PROP_FRAME_WIDTH, params.width);
+	    cap_->set(cv::CAP_PROP_FRAME_HEIGHT, params.height);
+	    cap_->set(cv::CAP_PROP_FPS, params.fps);
+	} else {
+		// video file
+		cout << "[INFO] VideoSource_Linux: Opening video source file " << params.filename << "..." << endl;
+		cap_ = new cv::VideoCapture(params.filename);
+		params.width = cap_->get(cv::CAP_PROP_FRAME_WIDTH);
+		params.height = cap_->get(cv::CAP_PROP_FRAME_HEIGHT);
+	}
     if (!cap_->isOpened()) {
       cerr << "[ERROR] Couldn't open video device" << endl;
       exit(-1);

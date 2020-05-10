@@ -120,6 +120,9 @@ bool Config::ReadParameters(std::string filename) {
     if (fs["Video.width"].isNamed()) fs["Video.width"] >> video_params_.width;
     if (fs["Video.height"].isNamed()) fs["Video.height"] >> video_params_.height;
     if (fs["Video.fps"].isNamed()) fs["Video.fps"] >> video_params_.fps;
+
+    // Added for video file input
+    if (fs["Video.filename"].isNamed()) fs["Video.filename"] >> video_params_.filename;
   } else {
     if (fs["Video.path"].isNamed()) fs["Video.path"] >> video_params_.path;
     if (fs["Video.filename"].isNamed()) fs["Video.filename"] >> video_params_.filename;

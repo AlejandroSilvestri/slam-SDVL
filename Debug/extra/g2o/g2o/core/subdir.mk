@@ -27,7 +27,6 @@ CPP_SRCS += \
 ../extra/g2o/g2o/core/robust_kernel_factory.cpp \
 ../extra/g2o/g2o/core/robust_kernel_impl.cpp \
 ../extra/g2o/g2o/core/solver.cpp \
-../extra/g2o/g2o/core/sparse_block_matrix_test.cpp \
 ../extra/g2o/g2o/core/sparse_optimizer.cpp 
 
 OBJS += \
@@ -54,7 +53,6 @@ OBJS += \
 ./extra/g2o/g2o/core/robust_kernel_factory.o \
 ./extra/g2o/g2o/core/robust_kernel_impl.o \
 ./extra/g2o/g2o/core/solver.o \
-./extra/g2o/g2o/core/sparse_block_matrix_test.o \
 ./extra/g2o/g2o/core/sparse_optimizer.o 
 
 CPP_DEPS += \
@@ -81,7 +79,6 @@ CPP_DEPS += \
 ./extra/g2o/g2o/core/robust_kernel_factory.d \
 ./extra/g2o/g2o/core/robust_kernel_impl.d \
 ./extra/g2o/g2o/core/solver.d \
-./extra/g2o/g2o/core/sparse_block_matrix_test.d \
 ./extra/g2o/g2o/core/sparse_optimizer.d 
 
 
@@ -89,7 +86,7 @@ CPP_DEPS += \
 extra/g2o/g2o/core/%.o: ../extra/g2o/g2o/core/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -DUSE_GUI -I/usr/local/include/opencv4 -I/usr/include/eigen3 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+	g++ -std=c++17 -DUSE_GUI -I/usr/include/eigen3 -I/usr/local/include/opencv4 -O0 -g3 -Wall -c -fmessage-length=0 -pthread -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

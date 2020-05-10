@@ -25,5 +25,8 @@ C_DEPS :=
 SUBDIRS := \
 . \
 extra \
+extra/g2o/g2o/core \
+extra/g2o/g2o/stuff \
+extra/g2o/g2o/types \
 ui \
 

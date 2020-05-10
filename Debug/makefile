@@ -9,6 +9,9 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include ui/subdir.mk
+-include extra/g2o/g2o/types/subdir.mk
+-include extra/g2o/g2o/stuff/subdir.mk
+-include extra/g2o/g2o/core/subdir.mk
 -include extra/subdir.mk
 -include subdir.mk
 -include objects.mk
@@ -45,7 +48,7 @@ all: slam-SDVL
 slam-SDVL: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++ -L/home/alejandro/Descargas/Módulos/slam-SDVL/extra/g2o/lib -pthread -o "slam-SDVL" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -pthread -o "slam-SDVL" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
